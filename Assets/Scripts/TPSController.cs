@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class TPSController : MonoBehaviour
 {
-
+    //---------------Componentes-----------------//
     private CharacterController _controller;
     private Transform _camera;
     private Transform _lookAtPlayer;
@@ -20,7 +20,8 @@ public class TPSController : MonoBehaviour
     //---------------Input-----------------------//
     private float _horizontal;
     private float _vertical;
-    private float _turnSmoothVelocity;
+    private float _joystickX;
+    private float _joystickY;
     [SerializeField] private float _JumpHeight = 2;
     [SerializeField] private float _movementSpeed = 5f;
 
@@ -79,11 +80,17 @@ public class TPSController : MonoBehaviour
     {
         Vector3 move= new Vector3(_horizontal, 0, _vertical);
 
+
         _animator.SetFloat("VelZ", _vertical);
         _animator.SetFloat("VelX", _horizontal);
 
         yAxis.Update(Time.deltaTime);
         xAxis.Update(Time.deltaTime);
+
+        _joystickX = Input.GetAxis("Mouse X");
+        _joystickY = Input.GetAxis("Mouse Y");
+        xAxis.Value += _joystickX * Time.deltaTime;
+        yAxis.Value += _joystickY * Time.deltaTime;
 
         transform.rotation = Quaternion.Euler(0, xAxis.Value, 0);
         _lookAtPlayer.rotation = Quaternion.Euler(yAxis.Value, xAxis.Value, 0);
