@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Water
   - UI
+  - DeathZone
   - 
   - 
   - 
@@ -35,8 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Minimap
   m_SortingLayers:
   - name: Default
     uniqueID: 0

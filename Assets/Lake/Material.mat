@@ -93,7 +93,7 @@ Material:
     - _Cull: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistortionBlend: 0.209
+    - _DistortionBlend: 0.511
     - _DistortionEnabled: 1
     - _DistortionStrength: 1
     - _DistortionStrengthScaled: 0.1
@@ -122,7 +122,7 @@ Material:
     m_Colors:
     - _BaseWindMultipliers: {r: 1, g: 1, b: 1, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.11454252, g: 0.62264144, b: 0.58904016, a: 0.49019608}
+    - _Color: {r: 0.102394104, g: 0.5566038, b: 0.52515846, a: 0.49019608}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _HueVariation: {r: 0.9, g: 0.5, b: 0, a: 0.1019608}
     - _SoftParticleFadeParams: {r: 0, g: 0.23696683, b: 0, a: 0}

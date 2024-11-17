@@ -24,6 +24,8 @@ public class TPSController : MonoBehaviour
     private float _joystickY;
 
     //---------------Movimiento-----------------//
+
+    private bool _isDead = false;
     [SerializeField] private float _JumpHeight = 2;
     [SerializeField] private float _movementSpeed = 5f;
 
@@ -66,7 +68,10 @@ public class TPSController : MonoBehaviour
             _aimCamera.SetActive(false);
         }
         
-        Movimiento(); 
+        if(_isDead == false)
+        {
+            Movimiento(); 
+        }
 
 
         if(Input.GetButtonDown("Jump") && IsGrounded())
@@ -143,5 +148,14 @@ public class TPSController : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(_sensorPosition.position, _sensorRadius);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.layer == 6)
+        {
+            _isDead = true;
+            _animator.SetTrigger("IsDead");
+        }
     }
 }
