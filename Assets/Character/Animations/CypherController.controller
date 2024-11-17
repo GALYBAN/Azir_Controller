@@ -34,84 +34,84 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 5e8374b10582a104199784c2a2f4e2a5, type: 2}
+    m_Motion: {fileID: 7400000, guid: 2ff69e36b2e864647a2d244354c7544d, type: 2}
     m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: VelX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: a1b7509c89264a8499743163a0b39466, type: 2}
+    m_Threshold: 0.11111111
+    m_Position: {x: 0, y: -0.15}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Blend
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 5e8374b10582a104199784c2a2f4e2a5, type: 2}
+    m_Threshold: 0.22222222
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 4844f4ad9c7005c429b902add6c12616, type: 2}
+    m_Threshold: 0.33333334
+    m_Position: {x: 0, y: 0.15}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Blend
+    m_Mirror: 0
+  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: fb8328f370f571b4eafbba61f97a43d6, type: 2}
-    m_Threshold: 0.125
+    m_Threshold: 0.44444445
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9b634c34b1e170348ae14f2aafa05f6e, type: 2}
-    m_Threshold: 0.25
-    m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Blend
-    m_Mirror: 0
-  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: c83512ab85b65374985d471c43f25493, type: 2}
-    m_Threshold: 0.375
+    m_Threshold: 0.5555556
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: a1b7509c89264a8499743163a0b39466, type: 2}
-    m_Threshold: 0.5
-    m_Position: {x: 0, y: -0.2}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Blend
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4844f4ad9c7005c429b902add6c12616, type: 2}
-    m_Threshold: 0.625
-    m_Position: {x: 0, y: 0.2}
+    m_Motion: {fileID: 7400000, guid: 521ce509b4b27324caa4bb9b0e4e6d29, type: 2}
+    m_Threshold: 0.6666667
+    m_Position: {x: 0.15, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 766b71cc6b659914a85caea6c1659168, type: 2}
-    m_Threshold: 0.75
-    m_Position: {x: -0.2, y: 0}
+    m_Threshold: 0.7777778
+    m_Position: {x: -0.15, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 521ce509b4b27324caa4bb9b0e4e6d29, type: 2}
-    m_Threshold: 0.875
-    m_Position: {x: 0.2, y: 0}
+    m_Motion: {fileID: 7400000, guid: 9b634c34b1e170348ae14f2aafa05f6e, type: 2}
+    m_Threshold: 0.8888889
+    m_Position: {x: -1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2ff69e36b2e864647a2d244354c7544d, type: 2}
-    m_Threshold: 1
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: VelX
     m_Mirror: 0
   m_BlendParameter: VelX
   m_BlendParameterY: VelZ
   m_MinThreshold: 0
-  m_MaxThreshold: 1
+  m_MaxThreshold: 0.8888889
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
-  m_BlendType: 1
+  m_BlendType: 2
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -192,7 +192,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsDeath
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5933807897961265850}
   m_Solo: 0

@@ -22,6 +22,8 @@ public class TPSController : MonoBehaviour
     private float _vertical;
     private float _joystickX;
     private float _joystickY;
+
+    //---------------Movimiento-----------------//
     [SerializeField] private float _JumpHeight = 2;
     [SerializeField] private float _movementSpeed = 5f;
 
@@ -89,18 +91,25 @@ public class TPSController : MonoBehaviour
 
         _joystickX = Input.GetAxis("Mouse X");
         _joystickY = Input.GetAxis("Mouse Y");
-        xAxis.Value += _joystickX * Time.deltaTime;
-        yAxis.Value += _joystickY * Time.deltaTime;
+
+        float _sensitivity = Mathf.Max (1.0f, Mathf.Abs(_joystickX) + Mathf.Abs(_joystickY));
+
+        xAxis.Value += _joystickX * _sensitivity* Time.deltaTime;
+        yAxis.Value += _joystickY * _sensitivity * Time.deltaTime;
 
         transform.rotation = Quaternion.Euler(0, xAxis.Value, 0);
-        _lookAtPlayer.rotation = Quaternion.Euler(yAxis.Value, xAxis.Value, 0);
+        _lookAtPlayer.rotation = Quaternion.Euler(yAxis.Value, xAxis.Value * _sensitivity, 0);
+
+        float walkVelocity = Mathf.Max(0.1f, Mathf.Abs(_horizontal) + Mathf.Abs(_vertical));
 
         if(move != Vector3.zero)
         {
-            float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
-            Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+            Vector3 moveDirection = transform.TransformDirection(move);
+            moveDirection.Normalize();
 
-            _controller.Move(moveDirection * _movementSpeed * Time.deltaTime);
+            float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
+
+            _controller.Move(moveDirection * walkVelocity* _movementSpeed * Time.deltaTime);
         }
 
     }
