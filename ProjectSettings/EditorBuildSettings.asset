@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/caquita.unity
+    guid: e89e6cea8af6d3c4b968f7847d157ff1
+  - enabled: 1
+    path: Assets/Scenes/chumino.unity
+    guid: 1f49ae163bedd7c4aaa128c9e84ce34a
+  - enabled: 1
+    path: Assets/Scenes/pollita.unity
+    guid: d4dcbf023b3a62d47a285d126e9712c8
   m_configObjects: {}

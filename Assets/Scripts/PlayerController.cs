@@ -67,16 +67,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _animator.SetBool("IsJumping", false);
+           _animator.SetBool("IsJumping", false);
         }
 
-        Gravity();
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            RayTest();
-        }
-        
+        Gravity();        
         
     }
 
@@ -105,8 +99,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 direction= new Vector3(_horizontal, 0, _vertical);
 
-        _animator.SetFloat("VelZ",_vertical);
-        _animator.SetFloat("VelX",_horizontal);
+       _animator.SetFloat("VelZ",_vertical);
+       _animator.SetFloat("VelX",_horizontal);
 
 
         float targeAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _camara.eulerAngles.y;
@@ -173,7 +167,7 @@ public class PlayerController : MonoBehaviour
         
     }*/
 
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    /*void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.tag == "Enemy")
         {
@@ -188,9 +182,9 @@ public class PlayerController : MonoBehaviour
 
             body.velocity = pushDirection * _pushForce / body.mass;
         }
-    }
+    }*/
 
-    void RayTest()
+    /*void RayTest()
     {
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward, out hit, 10))
@@ -206,7 +200,7 @@ public class PlayerController : MonoBehaviour
                enemyScript.TakeDamage(1);
             }
         }
-    }
+    }*/
 
     void OnDrawGizmos()
     {
